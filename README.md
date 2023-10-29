@@ -7,13 +7,13 @@
 pip install Pillow numpy fonttools
 ```
 ### 调用
-请先确保 `ProjectSekaiStickerMaker` 文件夹与你要调用它的文件同级。如果不是，请自行解决导入问题
+请先确保 `ProjectSekaiStickerMaker` 文件夹与你要调用它的文件同级
 
 ```python
 # 运行目录在你调用 ProjectSekaiStickerMaker 这级
 from ProjectSekaiStickerMaker import make_sticker, make_preview, make_character_list
 
-# 运行目录在你调用 ProjectSekaiStickerMaker 更上级
+# 运行目录在你调用 ProjectSekaiStickerMaker 更上级（一般用的都是这个吧？）
 from .ProjectSekaiStickerMaker import make_sticker, make_preview, make_character_list
 
 from PIL import Image
@@ -22,12 +22,13 @@ from PIL import Image
 character_list_image: Image.Image = make_character_list()
 
 preview_image: Image.Image = make_preview(character="Emu")
-# 支持的角色请参考 config.py 中的 sticker_colors 的键
+# 支持的角色请参考 nickname.py
 
 sticker_image: Image.Image = make_sticker(
-    character = "Emu",
-    index = "01",
+    character = "Emu", # 此处的 `character` 必须是 `nickname.py` 中存在的键
+    index = "01", # 此处的 `index` 必须是 data/stickers 中存在的序号，只能是 `01`, `02` 之类的
     text = "你好吖",
+    # 下面的参数是可选的
     degree = 0,
     text_zoom_ratio = 1,
     text_pos = "mu",

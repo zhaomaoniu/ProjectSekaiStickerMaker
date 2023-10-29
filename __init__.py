@@ -1,6 +1,5 @@
 import os
 import math
-
 from PIL import Image, ImageDraw
 
 from .utils import draw_text, paste
